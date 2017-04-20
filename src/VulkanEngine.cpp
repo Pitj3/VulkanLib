@@ -87,6 +87,8 @@ void VulkanEngine::createVulkanInstance()
     createInfo.enabledExtensionCount = extensions.size();
     createInfo.ppEnabledExtensionNames = extensions.data();
 
+    checkValidationLayerSupport();
+
     if(enableValidationLayers)
     {
         createInfo.enabledLayerCount = _validationLayers.size();

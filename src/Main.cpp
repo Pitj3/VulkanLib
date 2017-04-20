@@ -1,3 +1,5 @@
+#define VULKANDEBUG 1
+
 #include "VulkanLib.hpp"
 
 class VulkanApp 

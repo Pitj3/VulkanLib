@@ -1,0 +1,69 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "C++ Launch",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceRoot}/VulkanLib",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceRoot}",
+            "environment": [{"name":"LD_LIBRARY_PATH", "value":"/home/pitje/Code/Vulkan/VulkanSDK/1.0.46.0/x86_64/lib"}, {"name":"VK_LAYER_PATH", "value":"/home/pitje/Code/Vulkan/VulkanSDK/1.0.46.0/x86_64/etc/explicit_layer.d"}],
+            "externalConsole": true,
+            "linux": {
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            },
+            "windows": {
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            }
+        },
+        {
+            "name": "C++ Attach",
+            "type": "cppdbg",
+            "request": "attach",
+            "program": "${workspaceRoot}/VulkanLib",
+            "processId": "${command:pickProcess}",
+            "linux": {
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+            "osx": {
+                "MIMode": "lldb"
+            },
+            "windows": {
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            }
+        }
+    ]
+}
