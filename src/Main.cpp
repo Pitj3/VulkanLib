@@ -1,5 +1,3 @@
-#define VULKANDEBUG 1
-
 #include "VulkanLib.hpp"
 
 class VulkanApp 
@@ -24,21 +22,36 @@ class VulkanApp
         void initVulkan() 
         {
             VulkanEngine::get()->addValidationLayer("VK_LAYER_LUNARG_standard_validation");
+            VulkanEngine::get()->addDeviceExtension(VK_KHR_SWAPCHAIN_EXTENSION_NAME);
+
             VulkanEngine::get()->createVulkanInstance();
             VulkanEngine::get()->createDebugCallback();
+            VulkanEngine::get()->createSurface();
+            VulkanEngine::get()->createPhysicalDevice();
+            VulkanEngine::get()->createLogicalDevice();
+            VulkanEngine::get()->createSwapChain();
+            VulkanEngine::get()->createImageViews();
+            VulkanEngine::get()->createRenderPass();
+            VulkanEngine::get()->createGraphicsPipeline();
+            VulkanEngine::get()->createFramebuffers();
+            VulkanEngine::get()->createCommandPool();
+            VulkanEngine::get()->createCommandBuffers();
+            VulkanEngine::get()->createSemaphores();
         }
 
         void mainLoop() 
         {
             while (VulkanEngine::get()->isRunning()) 
             {
-                
-                display->swapBuffers();
-                glfwPollEvents();
+                EventManager::get()->poll();
+                VulkanEngine::get()->drawFrame();
             }
+
+            vkDeviceWaitIdle(VulkanEngine::get()->_device);
 
             delete display;
             VulkanEngine::destroy();
+            EventManager::destroy();
         }
 };
 

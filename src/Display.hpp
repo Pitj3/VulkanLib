@@ -11,6 +11,11 @@ class Display
 
         void swapBuffers();
 
+        GLFWwindow* getGLFWWindow() { return _window; }
+
+        uint8 getWidth() { return _width; }
+        uint8 getHeight() { return _height; }
+
     private:
         uint8 _width, _height;
 

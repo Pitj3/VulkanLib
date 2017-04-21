@@ -5,5 +5,6 @@
 
 #include "Display.hpp"
 #include "VulkanEngine.hpp"
+#include "EventManager.hpp"
 
 #endif // VULKAN_LIB_H_
